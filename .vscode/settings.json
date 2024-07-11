@@ -1,0 +1,9 @@
+{
+    "yaml.schemas": {
+        "file:///c%3A/Users/akira/.vscode/extensions/ibm.zopeneditor-1.2.7/resources/zapp-schema-0.0.2.json": [
+            "zapp.yaml"
+        ],
+        "file:///c%3A/Users/akira/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+        "https://raw.githubusercontent.com/GoogleContainerTools/skaffold/main/docs-v1/content/en/schemas/v2beta3.json": "file:///d%3A/projetos/tickening/skaffold.yaml"
+    }
+}
