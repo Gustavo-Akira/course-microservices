@@ -35,8 +35,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
-
 userSchema.statics.build = (attrs: UserAttrs) =>{
     return new User(attrs);
 };
@@ -46,4 +44,8 @@ userSchema.pre("save", async function(done) {
         this.set('password', hashed);
     }
 })
+const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
+
+
+
 export {User};

@@ -4,5 +4,5 @@ export const errorHandler = (err:Error,req: Request,res: Response, next: NextFun
     if(err instanceof CustomError){
         return res.status(err.status).send({errors: err.serializeErrors()});
     }
-    res.status(400).send({errors: [{message: "Something wnet wrong"}]});
+    res.status(400).send({errors: [{message: err.message}]});
 }

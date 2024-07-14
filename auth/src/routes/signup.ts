@@ -20,12 +20,6 @@ router.post('/api/users/signup',[
 
   const {email, password} = req.body;
 
-  const existingUser = await User.findOne({email});
-
-  if(existingUser){
-    throw new UserExistsError(email);
-  }
-
   const user = User.build({email, password});
   await user.save();
   
