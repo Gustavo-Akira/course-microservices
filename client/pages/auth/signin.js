@@ -4,7 +4,7 @@ import useRequest from '../../hooks/use-request';
 export default ()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword]= useState("");
-    const {doRequest, errors} = useRequest({url:"/api/users/signup",method:"post",body:{email, password}, onSuccess: ()=>Router.push("/")});
+    const {doRequest, errors} = useRequest({url:"/api/users/signin",method:"post",body:{email, password}, onSuccess: ()=>Router.push("/")});
     const onSubmit= async (e)=>{
         e.preventDefault();
         doRequest();
@@ -20,6 +20,6 @@ export default ()=>{
             <input type='password' value={password} onChange={e=>setPassword(e.target.value)} className="form-control"/>
         </div>
         {errors}
-        <button className="btn btn-primary">Cadastrar</button>
+        <button className="btn btn-primary">Entrar</button>
     </form>
 };
