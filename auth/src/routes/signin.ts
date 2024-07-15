@@ -1,11 +1,9 @@
 import express, {Request, Response} from 'express';
 import { body} from 'express-validator';
 import jwt from 'jsonwebtoken';
-import { validationRequest } from '../middlewares/validation-request';
 import { User } from '../models/user';
-import { UserNotExistsError } from '../errors/user-not-exists-error';
 import { Password } from '../services/password';
-import { EmailPasswordNotMatchError } from '../errors/email-password-not-match-error';
+import { EmailPasswordNotMatchError, UserNotExistsError, validationRequest } from '@akirauekita2002/common';
 
 const router = express.Router();
 

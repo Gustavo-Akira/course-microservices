@@ -3,8 +3,7 @@ import { body } from 'express-validator';
 import jwt from 'jsonwebtoken';
 
 import { User } from '../models/user';
-import { UserExistsError } from '../errors/user-exists-error';
-import { validationRequest } from '../middlewares/validation-request';
+import { UserExistsError, validationRequest } from '@akirauekita2002/common';
 
 const router = express.Router();
 
