@@ -13,7 +13,7 @@ app.use(cookieSession({
   secure: process.env.NODE_ENV !== "test"
 }));
 
-app.get('*',async (req, res)=>{
+app.all('*',async (req, res)=>{
    throw new NotFoundError();
 });
 app.use(errorHandler);
