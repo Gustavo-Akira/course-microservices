@@ -5,6 +5,7 @@ import cookieSession from 'cookie-session';
 import { currentUser, errorHandler, NotFoundError } from '@akirauekita2002/common';
 import { createTicketRoute } from './routes/new';
 import { showTicketRouter } from './routes/show';
+import { ListTicketRoute } from './routes';
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cookieSession({
 app.use(currentUser);
 app.use(createTicketRoute);
 app.use(showTicketRouter);
+app.use(ListTicketRoute);
 app.all('*',async (req, res)=>{
    throw new NotFoundError();
 });
