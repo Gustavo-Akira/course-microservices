@@ -21,5 +21,5 @@ it('returns thet ticket if the ticket is found', async ()=> {
         .send().expect(200);
 
     expect(ticketResponse.body.title).toEqual("ticket");
-    expect(ticketResponse.body.title).toEqual(20);
+    expect(ticketResponse.body.price).toEqual(20);
 });
