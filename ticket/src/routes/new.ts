@@ -1,6 +1,7 @@
-import { requireAuth } from "@akirauekita2002/common";
+import { requireAuth, validationRequest } from "@akirauekita2002/common";
 import express,{ Request, Response } from "express";
 import {body} from 'express-validator';
+import { Ticket } from "../models/ticket";
 const router = express.Router();
 
 router.post('/api/tickets',requireAuth,[
@@ -9,10 +10,17 @@ router.post('/api/tickets',requireAuth,[
         .isEmpty()
         .withMessage('Title is required'),
     body('price')
-    .isFloat({gt:0})
+    .isFloat({gt: 0})
     .withMessage('Price must be greater than 0')
-], (req: Request, res: Response)=>{
-    res.sendStatus(200);
+], validationRequest, async (req: Request, res: Response)=>{
+    const {title, price} = req.body;
+    const ticket = Ticket.build({
+        title,
+        price,
+        userId: req.currentUser!.id
+    });
+    await ticket.save();
+    res.status(201).send(ticket);
 });
 
 export { router as createTicketRoute};
